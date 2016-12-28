@@ -3,7 +3,7 @@ Library for running Xamarin.Forms inside of unit tests
 
 If you've ever written any complicated logic inside a Xamarin.Forms View, you quickly realize that this code can't be unit tested easily. Your colleagues will tell you to MVVM all the things, but you cannot get around interacting with Xamarin.Forms itself. Things like navigation, animations, custom markup extensions, etc. can become an untested mess.
 
-If are determined to try it, you will probably do something like this and then give up:
+If you are determined to try it, you will probably do something like this and then give up:
 ![FAIL](docs/fail.png)
 
 You can now install [this package](https://www.nuget.org/packages/Xamarin.Forms.Mocks/) from NuGet and get past this issue:
