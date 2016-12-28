@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="LoadFromXamlTests.cs" />
     <Compile Include="AnimationTests.cs" />
+    <Compile Include="DeviceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
