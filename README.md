@@ -3,7 +3,7 @@ Library for running Xamarin.Forms inside of unit tests
 
 If you've ever written any complicated logic inside a Xamarin.Forms View, you quickly realize that this code can't be unit tested easily.
 
-You probably hit something like this and then give up:
+If are determined to try it, you will probably do something like this and then give up:
 ![FAIL](docs/fail.png)
 
 You can now install [this package](https://www.nuget.org/packages/Xamarin.Forms.Mocks/) from NuGet and get past this issue:
@@ -90,3 +90,10 @@ I patterned after unit tests in Xamarin.Forms itself to figure out how to most e
 All animations will just complete immediately. Just `await` them and use `async` unit tests.
 
 I tested everything with NUnit, but nothing is tied specifically to it. Things should work find if you want to use a different unit testing library.
+
+# Roadmap
+
+- `Device.StartTimer` is not implemented. This is certainly possible.
+- I am not happy with `Device.BeginInvokeOnMainThread` being synchronous.
+- `GetUserStoreForApplication` is not implemented, this is probably used for things like `Properties` for persistence.
+- There are certainly other Xamarin.Forms internals not implemented. Let me know if there is something missing you need.
