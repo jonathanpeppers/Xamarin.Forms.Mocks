@@ -97,3 +97,4 @@ I tested everything with NUnit, but nothing is tied specifically to it. Things s
 - I am not happy with `Device.BeginInvokeOnMainThread` being synchronous.
 - `GetUserStoreForApplication` is not implemented, this is probably used for things like `Properties` for persistence.
 - There are certainly other Xamarin.Forms internals not implemented. Let me know if there is something missing you need.
+- I back-dated this lib to support Xamarin.Forms 2.3.x, although it may be able to go back further. It is hard to know how often the forms team changed some of these internal interfaces.
