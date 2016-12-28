@@ -51,6 +51,30 @@ public async Task FadeTo()
 }
 ```
 
+You can even unit test your markup extensions:
+```csharp
+public class TerribleExtension : IMarkupExtension<string>
+{
+    public string ProvideValue(IServiceProvider serviceProvider)
+    {
+        return "2016";
+    }
+
+    object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider)
+    {
+        return ProvideValue(serviceProvider);
+    }
+}
+
+[Test]
+public void MarkupExtension()
+{
+    var label = new Label();
+    label.LoadFromXaml("<Label xmlns:f=\"clr-namespace:Xamarin.Forms.Mocks.Tests;assembly=Xamarin.Forms.Mocks.Tests\" Text=\"{f:Terrible}\" />");
+    Assert.AreEqual("2016", label.Text);
+}
+```
+
 # How does it work?
 
 The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.

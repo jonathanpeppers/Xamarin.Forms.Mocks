@@ -21,6 +21,14 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
+        public void MarkupExtension()
+        {
+            var label = new Label();
+            label.LoadFromXaml("<Label xmlns:f=\"clr-namespace:Xamarin.Forms.Mocks.Tests;assembly=Xamarin.Forms.Mocks.Tests\" Text=\"{f:Terrible}\" />");
+            Assert.AreEqual("2016", label.Text);
+        }
+
+        [Test]
         public void LoadViaNew()
         {
             var view = new TestView();

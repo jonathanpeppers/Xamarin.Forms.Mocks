@@ -50,6 +50,7 @@
       <DependentUpon>TestViewCompiled.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigationTests.cs" />
+    <Compile Include="Views\TerribleExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
