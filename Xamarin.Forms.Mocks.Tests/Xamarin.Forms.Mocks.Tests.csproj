@@ -49,6 +49,7 @@
     <Compile Include="Views\TestViewCompiled.xaml.cs">
       <DependentUpon>TestViewCompiled.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavigationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
