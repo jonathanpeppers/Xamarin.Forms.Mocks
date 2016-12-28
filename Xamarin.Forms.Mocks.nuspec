@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+      <id>Xamarin.Forms.Mocks</id>
+      <version>$version$</version>
+      <authors>Jonathan Peppers</authors>
+      <owners>Jonathan Peppers</owners>
+      <title>Xamarin.Forms.Mocks</title>
+      <description>Library for running Xamarin.Forms inside of unit tests</description>
+      <summary>Library for running Xamarin.Forms inside of unit tests</summary>
+      <licenseUrl>https://raw.githubusercontent.com/jonathanpeppers/Xamarin.Forms.Mocks/master/LICENSE</licenseUrl>
+      <projectUrl>https://github.com/jonathanpeppers/Xamarin.Forms.Mocks/</projectUrl>
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <copyright>Jonathan Peppers 2017</copyright>
+      <releaseNotes>Initial Release</releaseNotes>
+      <tags>Xamarin, Xamarin.Forms, Mocks, Unit Testing</tags>
+      <dependencies>
+         <dependency id="Xamarin.Forms" version="2.3.0.107" />
+      </dependencies>
+   </metadata>
+</package>
