@@ -17,6 +17,8 @@ public void SetUp()
 
 So you can even do things like load XAML dynamically:
 ```csharp
+using Xamarin.Forms.Xaml;
+//...
 [Test]
 public void LoadFromXaml()
 {
@@ -51,9 +53,11 @@ public async Task FadeTo()
 
 # How does it work?
 
-The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked internal. I get around this by conforming to `[InternalsVisibleTo]` which is declared.
+The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
 
-I merely named the output assembly `Xamarin.Forms.Core.UnitTests.dll`, and the `MockForms` class is able to call internal stuff all it wants. I patterned after unit tests in Xamarin.Forms itself to figure out how to most easily mock everything.
+I merely named the output assembly `Xamarin.Forms.Core.UnitTests.dll`, and the `MockForms` class is able to call internal stuff all it wants. Just remember marking something `internal` does not mean someone tricky can't call it if they are determined enough.
+
+I patterned after unit tests in Xamarin.Forms itself to figure out how to most easily mock everything.
 
 # Notes
 
