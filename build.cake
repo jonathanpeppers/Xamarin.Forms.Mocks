@@ -13,7 +13,7 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/bin") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "0.1.0.0";
+string version = "0.1.0.1";
 
 Task("Clean")
     .Does(() =>
@@ -85,14 +85,7 @@ Task("NuGet-Push")
     {
         var apiKey = TransformTextFile ("./.nugetapikey").ToString();
 
-        //NuGetPush("./nuget/Live.Forms.iOS." + version + ".nupkg", new NuGetPushSettings 
-        //{
-        //    Verbosity = NuGetVerbosity.Detailed,
-        //    Source = "nuget.org",
-        //    ApiKey = apiKey
-        //});
-
-        NuGetPush("./nuget/Live.Forms.Fody." + version + ".nupkg", new NuGetPushSettings 
+        NuGetPush("./build/Xamarin.Forms.Mocks." + version + ".nupkg", new NuGetPushSettings 
         {
             Verbosity = NuGetVerbosity.Detailed,
             Source = "nuget.org",
@@ -101,6 +94,6 @@ Task("NuGet-Push")
     });
 
 Task("Default")
-    .IsDependentOn("NuGet-Package");
+    .IsDependentOn("NuGet-Push");
 
 RunTarget(target);
