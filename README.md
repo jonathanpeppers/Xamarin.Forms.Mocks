@@ -1,7 +1,7 @@
 # Xamarin.Forms.Mocks
 Library for running Xamarin.Forms inside of unit tests
 
-If you've ever written any complicated logic inside a Xamarin.Forms View, you quickly realize that this code can't be unit tested easily.
+If you've ever written any complicated logic inside a Xamarin.Forms View, you quickly realize that this code can't be unit tested easily. Your colleagues will tell you to MVVM all the things, but you cannot get around interacting with Xamarin.Forms itself. Things like navigation, animations, custom markup extensions, etc. can become an untested mess.
 
 If are determined to try it, you will probably do something like this and then give up:
 ![FAIL](docs/fail.png)
@@ -15,7 +15,7 @@ public void SetUp()
 }
 ```
 
-So you can even do things like load XAML dynamically:
+You can even do things in unit tests like load XAML dynamically:
 ```csharp
 using Xamarin.Forms.Xaml;
 //...
@@ -71,13 +71,13 @@ public void MarkupExtension()
 {
     var label = new Label();
     label.LoadFromXaml("<Label xmlns:f=\"clr-namespace:Xamarin.Forms.Mocks.Tests;assembly=Xamarin.Forms.Mocks.Tests\" Text=\"{f:Terrible}\" />");
-    Assert.AreEqual("2016", label.Text);
+    Assert.AreEqual("2016", label.Text); //amirite?
 }
 ```
 
 # How does it work?
 
-The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
+The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[assembly: InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
 
 I merely named the output assembly `Xamarin.Forms.Core.UnitTests.dll`, and the `MockForms` class is able to call internal stuff all it wants. Just remember marking something `internal` does not mean someone tricky can't call it if they are determined enough.
 
