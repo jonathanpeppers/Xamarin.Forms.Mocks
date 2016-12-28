@@ -13,7 +13,7 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/bin") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "0.1.0.2";
+string version = "0.1.0.3";
 
 Task("Clean")
     .Does(() =>
@@ -67,6 +67,7 @@ Task("NuGet-Package")
             Files = new [] 
             {
                 new NuSpecContent { Source = dirs[1] + File("Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/portable-net45+win8+wpa81+wp8" },
+                new NuSpecContent { Source = dirs[3] + File("Xamarin.Forms.Xaml.UnitTests.dll"), Target = "lib/portable-net45+win8+wpa81+wp8" },
             },
             OutputDirectory = dirs[0]
         };
