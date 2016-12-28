@@ -1,5 +1,4 @@
-//#tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
-//#addin "Cake.ExtendedNuGet"
+#tool nuget:?package=NUnit.Runners&version=2.6.4
 
 // Input args
 string target = Argument("target", "Default");
@@ -50,8 +49,15 @@ Task("Build")
         }
     });
 
-Task("NuGet-Package")
+Task("NUnit")
     .IsDependentOn("Build")
+    .Does(() =>
+    {
+        NUnit(dirs[2] + File("Xamarin.Forms.Mocks.Tests.dll"));
+    });
+
+Task("NuGet-Package")
+    .IsDependentOn("NUnit")
     .Does(() =>
     {
         var src = dirs[1] + File("Xamarin.Forms.Core.UnitTests.dll");

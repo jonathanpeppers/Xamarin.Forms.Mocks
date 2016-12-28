@@ -254,3 +254,4 @@ paket-files/
 # Cake
 tools/
 build/
+.nugetapikey
