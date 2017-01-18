@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="NavigationTests.cs" />
     <Compile Include="Views\TerribleExtension.cs" />
+    <Compile Include="PropertiesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

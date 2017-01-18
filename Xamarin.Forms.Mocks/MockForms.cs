@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -14,27 +15,27 @@ namespace Xamarin.Forms.Mocks
         {
             Device.PlatformServices = new PlatformServices();
             DependencyService.Register<SystemResourcesProvider>();
+            DependencyService.Register<Serializer>();
         }
 
         private class TestTicker : Ticker
         {
-            private bool _inside = false;
+            private bool _enabled;
 
-            public override int Insert(Func<long, bool> timeout)
+            protected override void EnableTimer()
             {
-                var result = base.Insert(timeout);
-                if (!_inside)
+                _enabled = true;
+
+                while (_enabled)
                 {
-                    _inside = true;
-                    timeout(Environment.TickCount);
-                    _inside = false;
+                    SendSignals(16);
                 }
-                return result;
             }
 
-            protected override void DisableTimer() { }
-
-            protected override void EnableTimer() { }
+            protected override void DisableTimer()
+            {
+                _enabled = false;
+            }
         }
 
         private class PlatformServices : IPlatformServices
@@ -116,6 +117,22 @@ namespace Xamarin.Forms.Mocks
             public IResourceDictionary GetSystemResources()
             {
                 return _dictionary;
+            }
+        }
+
+        private class Serializer : IDeserializer
+        {
+            private IDictionary<string, object> _properties = new Dictionary<string, object>();
+
+            public Task<IDictionary<string, object>> DeserializePropertiesAsync()
+            {
+                return Task.FromResult(_properties);
+            }
+
+            public Task SerializePropertiesAsync(IDictionary<string, object> properties)
+            {
+                _properties = properties;
+                return Task.FromResult(true);
             }
         }
     }

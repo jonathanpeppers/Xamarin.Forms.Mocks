@@ -75,6 +75,20 @@ public void MarkupExtension()
 }
 ```
 
+You can unit test persistence of Application properties:
+```csharp
+[Test]
+public async Task SaveAndLoad()
+{
+    var app = new App();
+    app.Properties["Chuck"] = "Norris";
+    await app.SavePropertiesAsync();
+
+    app = new App();
+    Assert.AreEqual("Norris", app.Properties["Chuck"]);
+}
+```
+
 # How does it work?
 
 The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[assembly: InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
@@ -95,6 +109,5 @@ I tested everything with NUnit, but nothing is tied specifically to it. Things s
 
 - `Device.StartTimer` is not implemented. This is certainly possible.
 - I am not happy with `Device.BeginInvokeOnMainThread` being synchronous.
-- `GetUserStoreForApplication` is not implemented, this is probably used for things like `Properties` for persistence.
 - There are certainly other Xamarin.Forms internals not implemented. Let me know if there is something missing you need.
 - I back-dated this lib to support Xamarin.Forms 2.3.x, although it may be able to go back further. It is hard to know how often the forms team changed some of these internal interfaces.
