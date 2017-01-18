@@ -20,23 +20,22 @@ namespace Xamarin.Forms.Mocks
 
         private class TestTicker : Ticker
         {
-            private bool _inside = false;
+            private bool _enabled;
 
-            public override int Insert(Func<long, bool> timeout)
+            protected override void EnableTimer()
             {
-                var result = base.Insert(timeout);
-                if (!_inside)
+                _enabled = true;
+
+                while (_enabled)
                 {
-                    _inside = true;
-                    timeout(Environment.TickCount);
-                    _inside = false;
+                    SendSignals(16);
                 }
-                return result;
             }
 
-            protected override void DisableTimer() { }
-
-            protected override void EnableTimer() { }
+            protected override void DisableTimer()
+            {
+                _enabled = false;
+            }
         }
 
         private class PlatformServices : IPlatformServices
