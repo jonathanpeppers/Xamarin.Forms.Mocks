@@ -7,13 +7,15 @@ namespace Xamarin.Forms.Mocks.Tests
     [TestFixture]
     public class AnimationTests
     {
+        private const int Timeout = 1000;
+
         [SetUp]
         public void SetUp()
         {
             MockForms.Init();
         }
 
-        [Test]
+        [Test, Timeout(Timeout)]
         public async Task FadeTo()
         {
             var view = new BoxView();
@@ -21,7 +23,7 @@ namespace Xamarin.Forms.Mocks.Tests
             Assert.AreEqual(0, view.Opacity);
         }
 
-        [Test]
+        [Test, Timeout(Timeout)]
         public async Task ParallelFadeTo()
         {
             var a = new BoxView();
@@ -37,7 +39,7 @@ namespace Xamarin.Forms.Mocks.Tests
             Assert.AreEqual(0, b.Opacity);
         }
 
-        [Test]
+        [Test, Timeout(Timeout)]
         public async Task AnimationWithFinished()
         {
             var source = new TaskCompletionSource<bool>();
@@ -54,7 +56,7 @@ namespace Xamarin.Forms.Mocks.Tests
             Assert.AreEqual(0, view.Opacity);
         }
 
-        [Test]
+        [Test, Timeout(Timeout)]
         public async Task AnimationWithRepeatFinished()
         {
             var source = new TaskCompletionSource<bool>();
