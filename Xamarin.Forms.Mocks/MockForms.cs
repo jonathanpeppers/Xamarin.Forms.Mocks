@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -14,6 +15,7 @@ namespace Xamarin.Forms.Mocks
         {
             Device.PlatformServices = new PlatformServices();
             DependencyService.Register<SystemResourcesProvider>();
+            DependencyService.Register<Serializer>();
         }
 
         private class TestTicker : Ticker
@@ -116,6 +118,22 @@ namespace Xamarin.Forms.Mocks
             public IResourceDictionary GetSystemResources()
             {
                 return _dictionary;
+            }
+        }
+
+        private class Serializer : IDeserializer
+        {
+            private IDictionary<string, object> _properties = new Dictionary<string, object>();
+
+            public Task<IDictionary<string, object>> DeserializePropertiesAsync()
+            {
+                return Task.FromResult(_properties);
+            }
+
+            public Task SerializePropertiesAsync(IDictionary<string, object> properties)
+            {
+                _properties = properties;
+                return Task.FromResult(true);
             }
         }
     }
