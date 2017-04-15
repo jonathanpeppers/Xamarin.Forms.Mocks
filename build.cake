@@ -13,7 +13,7 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/bin") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "0.1.0.4";
+string version = "2.3.3.1";
 
 Task("Clean")
     .Does(() =>
