@@ -15,7 +15,7 @@
       <releaseNotes>Initial Release</releaseNotes>
       <tags>Xamarin, Xamarin.Forms, Mocks, Unit Testing</tags>
       <dependencies>
-         <dependency id="Xamarin.Forms" version="2.3.3.193" />
+         <dependency id="Xamarin.Forms" version="2.3.4.224" />
       </dependencies>
    </metadata>
 </package>

@@ -105,7 +105,19 @@ All animations will just complete immediately. Just `await` them and use `async`
 
 I tested everything with NUnit, but nothing is tied specifically to it. Things should work find if you want to use a different unit testing library.
 
-# Roadmap
+# Xamarin.Forms versions
+
+Make sure to choose the appropriate version of this package for the version of Xamarin.Forms you are using:
+| Xamarin.Forms  | Xamarin.Forms.Mocks |
+| ------------- | ------------- |
+| 2.3.4.x  | 2.3.4.1  |
+| 2.3.3.x  | 2.3.3.1  |
+| 2.3.0-2.3.2 | 0.1.0.4 |
+| Older | Unsupported |
+
+As another option, you can include the source code for this project along with your unit tests. This allows you to target any version of Xamarin.Forms desired assuming there are no code changes.
+
+# Wish List
 
 - `Device.StartTimer` is not implemented. This is certainly possible.
 - I am not happy with `Device.BeginInvokeOnMainThread` being synchronous.
