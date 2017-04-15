@@ -11,9 +11,9 @@ namespace Xamarin.Forms.Mocks
 {
     public static class MockForms
     {
-        public static void Init()
+        public static void Init(string runtimePlatform = "Test")
         {
-            Device.PlatformServices = new PlatformServices();
+            Device.PlatformServices = new PlatformServices(runtimePlatform);
             DependencyService.Register<SystemResourcesProvider>();
             DependencyService.Register<Serializer>();
         }
@@ -40,6 +40,11 @@ namespace Xamarin.Forms.Mocks
 
         private class PlatformServices : IPlatformServices
         {
+            public PlatformServices(string runtimePlatform)
+            {
+                RuntimePlatform = runtimePlatform;
+            }
+
             public bool IsInvokeRequired
             {
                 get { return false; }
@@ -47,7 +52,8 @@ namespace Xamarin.Forms.Mocks
 
             public string RuntimePlatform
             {
-                get { return "Test"; }
+                get;
+                private set;
             }
 
             public void BeginInvokeOnMainThread(Action action)
