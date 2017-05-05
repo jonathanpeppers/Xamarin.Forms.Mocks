@@ -43,6 +43,7 @@
     <Compile Include="LoadFromXamlTests.cs" />
     <Compile Include="AnimationTests.cs" />
     <Compile Include="DeviceTests.cs" />
+    <Compile Include="OnPlatformTests.cs" />
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>

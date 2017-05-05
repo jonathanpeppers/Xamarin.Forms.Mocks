@@ -4,8 +4,8 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Xamarin.Forms.Mocks.Xaml;
 
 namespace Xamarin.Forms.Mocks
 {
@@ -16,6 +16,7 @@ namespace Xamarin.Forms.Mocks
             Device.PlatformServices = new PlatformServices(runtimePlatform);
             DependencyService.Register<SystemResourcesProvider>();
             DependencyService.Register<Serializer>();
+            DependencyService.Register<ValueConverterProvider>();
         }
 
         private class TestTicker : Ticker
