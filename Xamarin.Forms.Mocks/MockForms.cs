@@ -92,7 +92,11 @@ namespace Xamarin.Forms.Mocks
                 throw new NotImplementedException();
             }
 
-            public void OpenUriAction(Uri uri) { }
+            public void OpenUriAction(Uri uri)
+            {
+                DeviceHelper.OpenUriActionCallCount++;
+                DeviceHelper.LastOpenUriActionUri = uri;
+            }
 
             public void StartTimer(TimeSpan interval, Func<bool> callback) { }
         }
@@ -121,6 +125,12 @@ namespace Xamarin.Forms.Mocks
                 _properties = properties;
                 return Task.FromResult(true);
             }
+        }
+
+        public static class DeviceHelper
+        {
+            public static Uri LastOpenUriActionUri { get; internal set; }
+            public static int OpenUriActionCallCount { get; internal set; }
         }
     }
 }

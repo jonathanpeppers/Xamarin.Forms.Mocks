@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests
 {
@@ -57,6 +58,19 @@ namespace Xamarin.Forms.Mocks.Tests
 
             Assert.AreEqual(Device.WinPhone, Device.RuntimePlatform);
             Assert.AreEqual(TargetPlatform.WinPhone, Device.OS);
+        }
+
+        [Test]
+        public void OpenUriActionCall()
+        {
+            MockForms.Init();
+
+            var expectedUri = new Uri("https://www.google.com");
+
+            Device.OpenUri(expectedUri);
+
+            Assert.AreEqual(expectedUri, MockForms.DeviceHelper.LastOpenUriActionUri);
+            Assert.AreEqual(1, MockForms.DeviceHelper.OpenUriActionCallCount);
         }
     }
 }
