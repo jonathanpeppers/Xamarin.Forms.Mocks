@@ -11,6 +11,8 @@ namespace Xamarin.Forms.Mocks
 {
     public static class MockForms
     {
+        public static Action<Uri> OpenUriAction { get; set; } = delegate { };
+
         public static void Init(string runtimePlatform = "Test")
         {
             Device.PlatformServices = new PlatformServices(runtimePlatform);
@@ -92,7 +94,10 @@ namespace Xamarin.Forms.Mocks
                 throw new NotImplementedException();
             }
 
-            public void OpenUriAction(Uri uri) { }
+            public void OpenUriAction(Uri uri)
+            {
+                MockForms.OpenUriAction(uri);
+            }
 
             public void StartTimer(TimeSpan interval, Func<bool> callback) { }
         }
