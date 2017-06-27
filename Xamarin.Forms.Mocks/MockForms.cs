@@ -11,7 +11,11 @@ namespace Xamarin.Forms.Mocks
 {
     public static class MockForms
     {
-        public static Action<Uri> OpenUriAction { get; set; } = delegate { };
+        /// <summary>
+        /// Callback for asserting against Device.OpenUri
+        /// NOTE: MockForms.Init() clears this value
+        /// </summary>
+        public static Action<Uri> OpenUriAction { get; set; }
 
         public static void Init(string runtimePlatform = "Test")
         {
@@ -19,6 +23,7 @@ namespace Xamarin.Forms.Mocks
             DependencyService.Register<SystemResourcesProvider>();
             DependencyService.Register<Serializer>();
             DependencyService.Register<ValueConverterProvider>();
+            OpenUriAction = null;
         }
 
         private class TestTicker : Ticker
@@ -96,7 +101,7 @@ namespace Xamarin.Forms.Mocks
 
             public void OpenUriAction(Uri uri)
             {
-                MockForms.OpenUriAction(uri);
+                MockForms.OpenUriAction?.Invoke(uri);
             }
 
             public void StartTimer(TimeSpan interval, Func<bool> callback) { }

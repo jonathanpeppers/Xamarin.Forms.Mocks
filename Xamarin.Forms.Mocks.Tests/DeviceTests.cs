@@ -61,8 +61,10 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
-        public void OpenUriActionCall()
+        public void OpenUri()
         {
+            MockForms.Init();
+
             Uri actual = null;
             int callCount = 0;
 
@@ -71,14 +73,29 @@ namespace Xamarin.Forms.Mocks.Tests
                 actual = u;
                 callCount++;
             };
-            MockForms.Init();
-            
+
             var expectedUri = new Uri("https://www.google.com");
 
             Device.OpenUri(expectedUri);
 
             Assert.AreEqual(expectedUri, actual);
             Assert.AreEqual(1, callCount);
+        }
+
+        [Test]
+        public void InitClearsOpenUri()
+        {
+            MockForms.OpenUriAction = delegate { };
+            MockForms.Init();
+            Assert.IsNull(MockForms.OpenUriAction);
+        }
+
+        [Test]
+        public void OpenUriDoesNotThrowOnNull()
+        {
+            MockForms.Init();
+            MockForms.OpenUriAction = null;
+            Device.OpenUri(new Uri("https://www.google.com"));
         }
     }
 }
