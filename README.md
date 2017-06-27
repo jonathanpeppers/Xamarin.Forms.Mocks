@@ -89,6 +89,20 @@ public async Task SaveAndLoad()
 }
 ```
 
+You can assert `Device.OpenUri` was called properly:
+```csharp
+[Test]
+public void OpenUri()
+{
+    var expected = new Uri("https://www.google.com");
+    var actual = default(Uri);
+
+    MockForms.OpenUriAction = u => actual = u;    
+    Device.OpenUri(expected);
+    Assert.AreEqual(expected, actual);
+}
+```
+
 # How does it work?
 
 The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[assembly: InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
