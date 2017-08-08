@@ -45,9 +45,9 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void RuntimePlatformWindows()
         {
-            MockForms.Init(Device.Windows);
+            MockForms.Init(Device.WinRT);
 
-            Assert.AreEqual(Device.Windows, Device.RuntimePlatform);
+            Assert.AreEqual(Device.WinRT, Device.RuntimePlatform);
             Assert.AreEqual(TargetPlatform.Windows, Device.OS);
         }
 
