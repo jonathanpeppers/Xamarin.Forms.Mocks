@@ -1,0 +1,10 @@
+language: csharp
+
+os:
+  - osx
+
+dist: trusty
+sudo: required
+
+script: |
+  ./build.sh -t NUnit
