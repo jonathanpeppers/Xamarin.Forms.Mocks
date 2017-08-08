@@ -68,13 +68,13 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void WindowsColor()
         {
-            MockForms.Init(Device.Windows);
+            MockForms.Init(Device.WinRT);
 
             var platformColor = new OnPlatform<Color>();
             platformColor.Platforms.Add(new On
             {
                 Value = Color.Red,
-                Platform = new[] { Device.Windows }
+                Platform = new[] { Device.WinRT }
             });
 
             Assert.AreEqual(Color.Red, (Color)platformColor);
