@@ -1,7 +1,7 @@
 # Xamarin.Forms.Mocks
 Library for running Xamarin.Forms inside of unit tests
 
-| Windows / AppVeyor | OS X |
+| Windows / AppVeyor | OS X / Travis-CI |
 |---------------------------|-----------------------------|
 | ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/jonathanpeppers/Xamarin.Forms.Mocks) | ![Travis CI](https://travis-ci.org/jonathanpeppers/Xamarin.Forms.Mocks.svg?branch=master) |
 
