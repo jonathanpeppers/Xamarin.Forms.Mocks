@@ -100,7 +100,7 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void IdiomDesktop()
         {
-            MockForms.Init(Device.iOS, TargetIdiom.Desktop);
+            MockForms.Init(idiom: TargetIdiom.Desktop);
 
             Assert.AreEqual(TargetIdiom.Desktop, Device.Idiom);
         }
@@ -108,7 +108,7 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void IdiomPhone()
         {
-            MockForms.Init(Device.iOS, TargetIdiom.Phone);
+            MockForms.Init(idiom: TargetIdiom.Phone);
 
             Assert.AreEqual(TargetIdiom.Phone, Device.Idiom);
         }
@@ -116,7 +116,7 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void IdiomTablet()
         {
-            MockForms.Init(Device.iOS, TargetIdiom.Tablet);
+            MockForms.Init(idiom: TargetIdiom.Tablet);
 
             Assert.AreEqual(TargetIdiom.Tablet, Device.Idiom);
         }
@@ -124,7 +124,7 @@ namespace Xamarin.Forms.Mocks.Tests
         [Test]
         public void IdiomTV()
         {
-            MockForms.Init(Device.iOS, TargetIdiom.TV);
+            MockForms.Init(idiom: TargetIdiom.TV);
 
             Assert.AreEqual(TargetIdiom.TV, Device.Idiom);
         }
