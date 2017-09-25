@@ -17,7 +17,7 @@ namespace Xamarin.Forms.Mocks
         /// </summary>
         public static Action<Uri> OpenUriAction { get; set; }
 
-        public static void Init(string runtimePlatform = "Test", TargetIdiom idiom = TargetIdiom.Unsupported)
+        public static void Init(string runtimePlatform = "Test", TargetIdiom idiom = default(TargetIdiom))
         {
             Device.PlatformServices = new PlatformServices(runtimePlatform);
             Device.Idiom = idiom;
