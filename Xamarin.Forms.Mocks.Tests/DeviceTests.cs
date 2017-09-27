@@ -97,5 +97,44 @@ namespace Xamarin.Forms.Mocks.Tests
             MockForms.OpenUriAction = null;
             Device.OpenUri(new Uri("https://www.google.com"));
         }
+        [Test]
+        public void IdiomDesktop()
+        {
+            MockForms.Init(idiom: TargetIdiom.Desktop);
+
+            Assert.AreEqual(TargetIdiom.Desktop, Device.Idiom);
+        }
+
+        [Test]
+        public void IdiomPhone()
+        {
+            MockForms.Init(idiom: TargetIdiom.Phone);
+
+            Assert.AreEqual(TargetIdiom.Phone, Device.Idiom);
+        }
+
+        [Test]
+        public void IdiomTablet()
+        {
+            MockForms.Init(idiom: TargetIdiom.Tablet);
+
+            Assert.AreEqual(TargetIdiom.Tablet, Device.Idiom);
+        }
+
+        [Test]
+        public void IdiomTV()
+        {
+            MockForms.Init(idiom: TargetIdiom.TV);
+
+            Assert.AreEqual(TargetIdiom.TV, Device.Idiom);
+        }
+
+        [Test]
+        public void IdiomUnsupported()
+        {
+            MockForms.Init();
+
+            Assert.AreEqual(TargetIdiom.Unsupported, Device.Idiom);
+        }
     }
 }
