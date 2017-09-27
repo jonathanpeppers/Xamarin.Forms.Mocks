@@ -107,6 +107,24 @@ public void OpenUri()
 }
 ```
 
+To test things using `Application.Current` or its resources:
+```csharp
+[SetUp]
+public void SetUp()
+{
+    MockForms.Init();
+
+    //This is your App.xaml and App.xaml.cs, which can have resources, etc.
+    Application.Current = new App();
+}
+
+[TearDown]
+public void TearDown()
+{
+    Application.Current = null;
+}
+```
+
 # How does it work?
 
 The main issue with trying to call `Xamarin.Forms.Init()` yourself for unit testing is that all kinds of interfaces and classes are marked `internal`. I get around this by conforming to `[assembly: InternalsVisibleTo]` which is declared for the purposes of unit testing Xamarin.Forms itself.
