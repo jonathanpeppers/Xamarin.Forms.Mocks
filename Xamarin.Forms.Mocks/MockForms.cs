@@ -105,6 +105,10 @@ namespace Xamarin.Forms.Mocks
                 MockForms.OpenUriAction?.Invoke(uri);
             }
 
+            public void QuitApplication()
+            {
+            }
+
             public void StartTimer(TimeSpan interval, Func<bool> callback) { }
         }
 
