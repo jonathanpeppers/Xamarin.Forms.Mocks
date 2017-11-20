@@ -147,6 +147,7 @@ Make sure to choose the appropriate version of this package for the version of X
 
 | Xamarin.Forms  | Xamarin.Forms.Mocks |
 | ------------- | ------------- |
+| 2.5.0.x | 2.5.0.x |
 | 2.4.0.x | 2.4.0.x |
 | 2.3.5.x-pre | 2.3.5.x-pre6 |
 | 2.3.4.x  | 2.3.4.x  |
