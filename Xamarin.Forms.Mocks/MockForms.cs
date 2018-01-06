@@ -107,7 +107,16 @@ namespace Xamarin.Forms.Mocks
 
             public void QuitApplication() { }
 
-            public void StartTimer(TimeSpan interval, Func<bool> callback) { }
+            public async void StartTimer(TimeSpan interval, Func<bool> callback)
+            {
+                while (true)
+                {
+                    await Task.Delay(interval);
+
+                    if (!callback())
+                        return;
+                }
+            }
         }
 
         private class SystemResourcesProvider : ISystemResourcesProvider

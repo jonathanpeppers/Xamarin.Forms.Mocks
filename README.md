@@ -107,6 +107,22 @@ public void OpenUri()
 }
 ```
 
+You can use `Device.StartTimer` as you would expect:
+```csharp
+[Test]
+public async Task StartTimer()
+{
+    var source = new TaskCompletionSource<bool>();
+    Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
+    {
+        source.SetResult(true);
+        return false;
+    });
+
+    Assert.IsTrue(await source.Task);
+}
+```
+
 To test things using `Application.Current` or its resources:
 ```csharp
 [SetUp]
@@ -159,7 +175,6 @@ As another option, you can include the source code for this project along with y
 
 # Wish List
 
-- `Device.StartTimer` is not implemented. This is certainly possible.
 - I am not happy with `Device.BeginInvokeOnMainThread` being synchronous.
 - There are certainly other Xamarin.Forms internals not implemented. Let me know if there is something missing you need.
 - I back-dated this lib to support Xamarin.Forms 2.3.x, although it may be able to go back further. It is hard to know how often the forms team changed some of these internal interfaces.
