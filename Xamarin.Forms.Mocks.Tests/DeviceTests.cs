@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests
@@ -135,6 +136,43 @@ namespace Xamarin.Forms.Mocks.Tests
             MockForms.Init();
 
             Assert.AreEqual(TargetIdiom.Unsupported, Device.Idiom);
+        }
+
+        [Test]
+        public async Task StartTimer()
+        {
+            MockForms.Init();
+
+            var source = new TaskCompletionSource<bool>();
+            Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
+            {
+                source.SetResult(true);
+                return false;
+            });
+
+            Assert.IsTrue(await source.Task);
+        }
+
+        [Test]
+        public async Task StartTimerRepeating()
+        {
+            MockForms.Init();
+
+            const int max = 10;
+            int count = 0;
+            var source = new TaskCompletionSource<int>();
+            Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
+            {
+                if (++count == max)
+                {
+                    source.SetResult(count);
+                    return false;
+                }
+
+                return true;
+            });
+
+            Assert.AreEqual(max, await source.Task);
         }
     }
 }
