@@ -11,8 +11,8 @@
       <licenseUrl>https://raw.githubusercontent.com/jonathanpeppers/Xamarin.Forms.Mocks/master/LICENSE</licenseUrl>
       <projectUrl>https://github.com/jonathanpeppers/Xamarin.Forms.Mocks/</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
-      <copyright>Jonathan Peppers 2017</copyright>
-      <releaseNotes>Initial Release</releaseNotes>
+      <copyright>Jonathan Peppers 2018</copyright>
+      <releaseNotes>Upgraded to netstandard2.0</releaseNotes>
       <tags>Xamarin, Xamarin.Forms, Mocks, Unit Testing</tags>
       <dependencies>
          <dependency id="Xamarin.Forms" version="2.5.0.91635" />

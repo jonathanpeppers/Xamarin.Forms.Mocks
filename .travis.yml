@@ -5,6 +5,7 @@ os:
 
 dist: trusty
 sudo: required
+dotnet: 2.0.0
 
 script: |
   ./build.sh -t NUnit

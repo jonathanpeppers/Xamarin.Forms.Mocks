@@ -11,6 +11,9 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks/bin") + Directory(configuration),
     Directory("./Xamarin.Forms.Mocks.Tests/bin") + Directory(configuration),
     Directory("./Xamarin.Forms.Mocks.Xaml/bin") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks/obj") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks.Tests/obj") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
 string version = "2.5.0.2";
@@ -33,20 +36,7 @@ Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
     {
-        if(IsRunningOnWindows())
-        {
-            MSBuild(sln, settings =>
-                settings
-                    //.WithProperty("Platform", new[] { "iPhoneSimulator" })
-                    .SetConfiguration(configuration));
-        }
-        else
-        {
-            XBuild(sln, settings =>
-                settings
-                    //.WithProperty("Platform", new[] { "iPhoneSimulator" })
-                    .SetConfiguration(configuration));
-        }
+        MSBuild(sln, settings => settings.SetConfiguration(configuration));
     });
 
 Task("NUnit")
@@ -66,8 +56,8 @@ Task("NuGet-Package")
             Version = version,
             Files = new [] 
             {
-                new NuSpecContent { Source = dirs[1] + File("Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/portable-net45+win8+wpa81+wp8" },
-                new NuSpecContent { Source = dirs[3] + File("Xamarin.Forms.Xaml.UnitTests.dll"), Target = "lib/portable-net45+win8+wpa81+wp8" },
+                new NuSpecContent { Source = dirs[1] + File("netstandard2.0/Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/netstandard2.0" },
+                new NuSpecContent { Source = dirs[3] + File("netstandard2.0/Xamarin.Forms.Xaml.UnitTests.dll"), Target = "lib/netstandard2.0" },
             },
             OutputDirectory = dirs[0]
         };
