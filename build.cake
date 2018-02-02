@@ -11,6 +11,9 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks/bin") + Directory(configuration),
     Directory("./Xamarin.Forms.Mocks.Tests/bin") + Directory(configuration),
     Directory("./Xamarin.Forms.Mocks.Xaml/bin") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks/obj") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks.Tests/obj") + Directory(configuration),
+    Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
 string version = "2.5.0.2";
