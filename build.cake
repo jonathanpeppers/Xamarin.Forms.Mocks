@@ -36,20 +36,7 @@ Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
     {
-        if(IsRunningOnWindows())
-        {
-            MSBuild(sln, settings =>
-                settings
-                    //.WithProperty("Platform", new[] { "iPhoneSimulator" })
-                    .SetConfiguration(configuration));
-        }
-        else
-        {
-            XBuild(sln, settings =>
-                settings
-                    //.WithProperty("Platform", new[] { "iPhoneSimulator" })
-                    .SetConfiguration(configuration));
-        }
+        MSBuild(sln, settings => settings.SetConfiguration(configuration));
     });
 
 Task("NUnit")
