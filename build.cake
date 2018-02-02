@@ -69,8 +69,8 @@ Task("NuGet-Package")
             Version = version,
             Files = new [] 
             {
-                new NuSpecContent { Source = dirs[1] + File("Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/netstandard2.0" },
-                new NuSpecContent { Source = dirs[3] + File("Xamarin.Forms.Xaml.UnitTests.dll"), Target = "lib/netstandard2.0" },
+                new NuSpecContent { Source = dirs[1] + File("netstandard2.0/Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/netstandard2.0" },
+                new NuSpecContent { Source = dirs[3] + File("netstandard2.0/Xamarin.Forms.Xaml.UnitTests.dll"), Target = "lib/netstandard2.0" },
             },
             OutputDirectory = dirs[0]
         };
