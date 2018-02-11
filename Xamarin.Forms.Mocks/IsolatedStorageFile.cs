@@ -10,14 +10,10 @@ namespace Xamarin.Forms.Mocks
     {
         private Dictionary<string, MockFileSystemObject> _files = new Dictionary<string, MockFileSystemObject>();
 
-        private MockFileSystemObject GetFileSystemObject(string path, bool throwOnNotFound = false)
+        private MockFileSystemObject GetOrCreateFile(string path)
         {
-            MockFileSystemObject file;
-            if (!_files.TryGetValue(path, out file))
+            if (!_files.TryGetValue(path, out MockFileSystemObject file))
             {
-                if (throwOnNotFound)
-                    throw new FileNotFoundException("Not found!", path);
-
                 _files[path] = file = new MockFileSystemObject(false);
             }
             return file;
@@ -31,32 +27,33 @@ namespace Xamarin.Forms.Mocks
 
         public Task<bool> GetDirectoryExistsAsync(string path)
         {
-            var file = GetFileSystemObject(path);
-            return Task.FromResult(file.IsDirectory);
+            return Task.FromResult(_files.TryGetValue(path, out MockFileSystemObject file) && file.IsDirectory);
         }
 
         public Task<bool> GetFileExistsAsync(string path)
         {
-            var file = GetFileSystemObject(path);
-            return Task.FromResult(!file.IsDirectory);
+            return Task.FromResult(_files.TryGetValue(path, out MockFileSystemObject file) && !file.IsDirectory);
         }
 
         public Task<DateTimeOffset> GetLastWriteTimeAsync(string path)
         {
-            var file = GetFileSystemObject(path);
-            return Task.FromResult(file.LastWriteTime);
+            if (_files.TryGetValue(path, out MockFileSystemObject file))
+            {
+                return Task.FromResult(file.LastWriteTime);
+            }
+            throw new FileNotFoundException("Not found!", path);
         }
 
         public Task<Stream> OpenFileAsync(string path, Internals.FileMode mode, Internals.FileAccess access)
         {
-            var file = GetFileSystemObject(path);
+            var file = GetOrCreateFile(path);
             file.SetModified();
             return Task.FromResult(file.Stream);
         }
 
         public Task<Stream> OpenFileAsync(string path, Internals.FileMode mode, Internals.FileAccess access, Internals.FileShare share)
         {
-            var file = GetFileSystemObject(path);
+            var file = GetOrCreateFile(path);
             file.SetModified();
             return Task.FromResult(file.Stream);
         }

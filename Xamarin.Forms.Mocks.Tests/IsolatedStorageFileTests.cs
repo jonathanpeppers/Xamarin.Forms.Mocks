@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Xamarin.Forms.Mocks.Tests
@@ -43,6 +44,12 @@ namespace Xamarin.Forms.Mocks.Tests
             await _file.OpenFileAsync(path, 0, 0);
 
             Assert.AreNotEqual(lastWriteTime, await _file.GetLastWriteTimeAsync(path));
+        }
+
+        [Test, ExpectedException(typeof(FileNotFoundException))]
+        public async Task LastWriteTimeOnNotFound()
+        {
+            await _file.GetLastWriteTimeAsync("asdfdasf");
         }
     }
 }
