@@ -68,5 +68,13 @@ namespace Xamarin.Forms.Mocks.Tests
             Assert.IsNotNull(layout);
             Assert.AreEqual(new Thickness(20), layout.Margin);
         }
+
+        [Test]
+        public void UriImageSource()
+        {
+            var image = new Image();
+            image.LoadFromXaml("<Image xmlns=\"http://xamarin.com/schemas/2014/forms\"><Image.Source><UriImageSource Uri=\"https://upload.wikimedia.org/wikipedia/commons/3/30/Chuck_Norris_May_2015.jpg\" CachingEnabled=\"True\" CacheValidity=\"5\"/></Image.Source></Image>");
+            Assert.IsInstanceOf<UriImageSource>(image.Source);
+        }
     }
 }
