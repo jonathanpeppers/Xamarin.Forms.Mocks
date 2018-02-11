@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationTests.cs" />
+    <Compile Include="IsolatedStorageFileTests.cs" />
     <Compile Include="LoadFromXamlTests.cs" />
     <Compile Include="AnimationTests.cs" />
     <Compile Include="DeviceTests.cs" />
