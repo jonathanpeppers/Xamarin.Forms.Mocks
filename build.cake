@@ -16,7 +16,7 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "2.5.0.4";
+string version = "3.0.0.0";
 
 Task("Clean")
     .Does(() =>

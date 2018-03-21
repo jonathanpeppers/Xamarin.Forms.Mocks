@@ -44,21 +44,43 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
-        public void RuntimePlatformWindows()
+        public void RuntimePlatformGTK()
         {
-            MockForms.Init(Device.WinRT);
+            MockForms.Init(Device.GTK);
 
-            Assert.AreEqual(Device.WinRT, Device.RuntimePlatform);
-            Assert.AreEqual(TargetPlatform.Windows, Device.OS);
+            Assert.AreEqual(Device.GTK, Device.RuntimePlatform);
         }
 
         [Test]
-        public void RuntimePlatformWinPhone()
+        public void RuntimePlatformMacOS()
         {
-            MockForms.Init(Device.WinPhone);
+            MockForms.Init(Device.macOS);
 
-            Assert.AreEqual(Device.WinPhone, Device.RuntimePlatform);
-            Assert.AreEqual(TargetPlatform.WinPhone, Device.OS);
+            Assert.AreEqual(Device.macOS, Device.RuntimePlatform);
+        }
+
+        [Test]
+        public void RuntimePlatformTizen()
+        {
+            MockForms.Init(Device.Tizen);
+
+            Assert.AreEqual(Device.Tizen, Device.RuntimePlatform);
+        }
+
+        [Test]
+        public void RuntimePlatformUWP()
+        {
+            MockForms.Init(Device.UWP);
+
+            Assert.AreEqual(Device.UWP, Device.RuntimePlatform);
+        }
+
+        [Test]
+        public void RuntimePlatformWPF()
+        {
+            MockForms.Init(Device.WPF);
+
+            Assert.AreEqual(Device.WPF, Device.RuntimePlatform);
         }
 
         [Test]

@@ -46,10 +46,10 @@ namespace Xamarin.Forms.Mocks.Tests
             Assert.AreNotEqual(lastWriteTime, await _file.GetLastWriteTimeAsync(path));
         }
 
-        [Test, ExpectedException(typeof(FileNotFoundException))]
-        public async Task LastWriteTimeOnNotFound()
+        [Test]
+        public void LastWriteTimeOnNotFound()
         {
-            await _file.GetLastWriteTimeAsync("asdfdasf");
+            Assert.ThrowsAsync<FileNotFoundException>(async () => await _file.GetLastWriteTimeAsync("asdfdasf"));
         }
     }
 }
