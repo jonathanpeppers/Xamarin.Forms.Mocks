@@ -40,13 +40,14 @@ namespace Xamarin.Forms.Mocks.Tests
         {
             MockForms.Init(Device.iOS);
 
-            var platformColor = new OnPlatform<Color>();
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
             platformColor.Platforms.Add(new On
             {
                 Value = Color.Red,
                 Platform = new[] { Device.iOS }
             });
 
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
             Assert.AreEqual(Color.Red, (Color)platformColor);
         }
 
@@ -55,43 +56,78 @@ namespace Xamarin.Forms.Mocks.Tests
         {
             MockForms.Init(Device.Android);
 
-            var platformColor = new OnPlatform<Color>();
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
             platformColor.Platforms.Add(new On
             {
                 Value = Color.Red,
                 Platform = new[] { Device.Android }
             });
 
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
             Assert.AreEqual(Color.Red, (Color)platformColor);
         }
 
         [Test]
-        public void WindowsColor()
+        public void GTKColor()
         {
-            MockForms.Init(Device.WinRT);
+            MockForms.Init(Device.GTK);
 
-            var platformColor = new OnPlatform<Color>();
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
             platformColor.Platforms.Add(new On
             {
                 Value = Color.Red,
-                Platform = new[] { Device.WinRT }
+                Platform = new[] { Device.GTK }
             });
 
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
             Assert.AreEqual(Color.Red, (Color)platformColor);
         }
 
         [Test]
-        public void WinPhoneColor()
+        public void macOSColor()
         {
-            MockForms.Init(Device.WinPhone);
+            MockForms.Init(Device.macOS);
 
-            var platformColor = new OnPlatform<Color>();
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
             platformColor.Platforms.Add(new On
             {
                 Value = Color.Red,
-                Platform = new[] { Device.WinPhone }
+                Platform = new[] { Device.macOS }
             });
 
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
+            Assert.AreEqual(Color.Red, (Color)platformColor);
+        }
+
+        [Test]
+        public void UWPColor()
+        {
+            MockForms.Init(Device.UWP);
+
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
+            platformColor.Platforms.Add(new On
+            {
+                Value = Color.Red,
+                Platform = new[] { Device.UWP }
+            });
+
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
+            Assert.AreEqual(Color.Red, (Color)platformColor);
+        }
+
+        [Test]
+        public void WPFColor()
+        {
+            MockForms.Init(Device.WPF);
+
+            var platformColor = new OnPlatform<Color> { Default = Color.Blue };
+            platformColor.Platforms.Add(new On
+            {
+                Value = Color.Red,
+                Platform = new[] { Device.WPF }
+            });
+
+            Assert.AreNotEqual(Color.Blue, (Color)platformColor);
             Assert.AreEqual(Color.Red, (Color)platformColor);
         }
     }

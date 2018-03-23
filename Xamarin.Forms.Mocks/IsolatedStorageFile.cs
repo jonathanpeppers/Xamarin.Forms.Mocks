@@ -44,14 +44,14 @@ namespace Xamarin.Forms.Mocks
             throw new FileNotFoundException("Not found!", path);
         }
 
-        public Task<Stream> OpenFileAsync(string path, Internals.FileMode mode, Internals.FileAccess access)
+        public Task<Stream> OpenFileAsync(string path, FileMode mode, FileAccess access)
         {
             var file = GetOrCreateFile(path);
             file.SetModified();
             return Task.FromResult(file.Stream);
         }
 
-        public Task<Stream> OpenFileAsync(string path, Internals.FileMode mode, Internals.FileAccess access, Internals.FileShare share)
+        public Task<Stream> OpenFileAsync(string path, FileMode mode, FileAccess access, FileShare share)
         {
             var file = GetOrCreateFile(path);
             file.SetModified();
