@@ -1,4 +1,4 @@
-#tool nuget:?package=NUnit.Runners&version=2.6.4
+#tool nuget:?package=NUnit.ConsoleRunner&version=3.8.0
 
 // Input args
 string target = Argument("target", "Default");
@@ -43,7 +43,7 @@ Task("NUnit")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        NUnit(dirs[2] + File("Xamarin.Forms.Mocks.Tests.dll"));
+        NUnit3(dirs[2] + File("./net461/Xamarin.Forms.Mocks.Tests.dll"));
     });
 
 Task("NuGet-Package")
