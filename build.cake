@@ -16,7 +16,8 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "3.0.0.0";
+string version = "3.0.0.1";
+string suffix = "-pre2";
 
 Task("Clean")
     .Does(() =>
@@ -53,7 +54,7 @@ Task("NuGet-Package")
         var settings   = new NuGetPackSettings
         {
             Verbosity = NuGetVerbosity.Detailed,
-            Version = version,
+            Version = version + suffix,
             Files = new [] 
             {
                 new NuSpecContent { Source = dirs[1] + File("netstandard2.0/Xamarin.Forms.Core.UnitTests.dll"), Target = "lib/netstandard2.0" },
@@ -71,7 +72,7 @@ Task("NuGet-Push")
     {
         var apiKey = TransformTextFile ("./.nugetapikey").ToString();
 
-        NuGetPush("./build/Xamarin.Forms.Mocks." + version + ".nupkg", new NuGetPushSettings 
+        NuGetPush("./build/Xamarin.Forms.Mocks." + version + suffix + ".nupkg", new NuGetPushSettings 
         {
             Verbosity = NuGetVerbosity.Detailed,
             Source = "nuget.org",

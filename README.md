@@ -162,14 +162,17 @@ I tested everything with NUnit, but nothing is tied specifically to it. Things s
 Make sure to choose the appropriate version of this package for the version of Xamarin.Forms you are using:
 
 | Xamarin.Forms  | Xamarin.Forms.Mocks |
-| ------------- | ------------- |
-| 2.5.0.x | 2.5.0.x |
-| 2.4.0.x | 2.4.0.x |
-| 2.3.5.x-pre | 2.3.5.x-pre6 |
-| 2.3.4.x  | 2.3.4.x  |
-| 2.3.3.x  | 2.3.3.1  |
-| 2.3.0-2.3.2 | 0.1.0.4 |
-| Older | Unsupported |
+| -------------- | ------------------- |
+| * 3.0.0.x-pre2 | 3.0.0.x-pre2        |
+| 2.5.0.x        | 2.5.0.x             |
+| 2.4.0.x        | 2.4.0.x             |
+| 2.3.5.x-pre    | 2.3.5.x-pre6        |
+| 2.3.4.x        | 2.3.4.x             |
+| 2.3.3.x        | 2.3.3.1             |
+| 2.3.0-2.3.2    | 0.1.0.4             |
+| Older          | Unsupported         |
+
+* NOTE: we will try to keep up the pace with Xamarin.Forms 3.0.0 prereleases where possible. If you find an issue, file it, or better yet send a PR!
 
 As another option, you can include the source code for this project along with your unit tests. This allows you to target any version of Xamarin.Forms desired assuming there are no code changes.
 
