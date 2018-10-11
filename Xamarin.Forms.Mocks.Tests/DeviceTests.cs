@@ -161,6 +161,24 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
+        public void IdiomsAllDay()
+        {
+            var idioms = new[]
+            {
+                TargetIdiom.Desktop,
+                TargetIdiom.Phone,
+                TargetIdiom.Tablet,
+                TargetIdiom.TV,
+                TargetIdiom.Unsupported,
+            };
+            foreach (var idiom in idioms)
+            {
+                MockForms.Init(idiom: idiom);
+                Assert.AreEqual(idiom, Device.Idiom);
+            }
+        }
+
+        [Test]
         public async Task StartTimer()
         {
             MockForms.Init();
