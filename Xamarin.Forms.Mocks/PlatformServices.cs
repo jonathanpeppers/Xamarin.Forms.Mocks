@@ -69,6 +69,11 @@ namespace Xamarin.Forms.Mocks
 
         public void QuitApplication() { }
 
+        public SizeRequest GetNativeSize(VisualElement view, double widthConstraint, double heightConstraint)
+        {
+            return new SizeRequest();
+        }
+
         public async void StartTimer(TimeSpan interval, Func<bool> callback)
         {
             while (true)
