@@ -1,4 +1,7 @@
 version: '{build}'
 image: Visual Studio 2017
 build_script:
-- ps: .\build.ps1 -t Build
+- ps: .\build.ps1 -t NuGet-Package
+artifacts:
+- path: build
+  name: Xamarin.Forms.Mocks
