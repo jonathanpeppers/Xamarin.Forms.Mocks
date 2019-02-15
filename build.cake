@@ -67,7 +67,6 @@ Task("NuGet-Package")
     });
 
 Task("NuGet-Push")
-    .IsDependentOn("NuGet-Package")
     .Does(() =>
     {
         var apiKey = TransformTextFile ("./.nugetapikey").ToString();
