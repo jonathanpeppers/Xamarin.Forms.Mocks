@@ -2,6 +2,9 @@ version: '{build}'
 image: Visual Studio 2017
 build_script:
 - ps: .\build.ps1 -t NuGet-Package
+branches:
+  only:
+    - master
 artifacts:
 - path: build
   name: Xamarin.Forms.Mocks
