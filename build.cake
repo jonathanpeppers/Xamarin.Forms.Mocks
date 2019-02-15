@@ -16,8 +16,8 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "4.0.0.0";
-string suffix = "-pre1";
+string version = "3.5.0.0";
+string suffix = "";
 
 Task("Clean")
     .Does(() =>
@@ -80,6 +80,6 @@ Task("NuGet-Push")
     });
 
 Task("Default")
-    .IsDependentOn("NuGet-Push");
+    .IsDependentOn("NuGet-Package");
 
 RunTarget(target);
