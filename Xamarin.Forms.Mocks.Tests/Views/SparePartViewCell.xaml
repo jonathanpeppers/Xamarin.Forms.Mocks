@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin.Forms.Mocks.Tests.SparePartViewCell">
+    <Grid Padding="10,0,0,10" IsEnabled="{Binding IsEnabled}"  RowSpacing="0" AutomationId="SparePartViewCell">
+        <Grid.Triggers>
+            <Trigger TargetType="Grid"
+                    Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.6" />
+                <Setter Property="BackgroundColor" Value="{x:StaticResource DisabledbackgroundColor}"/>
+            </Trigger>
+        </Grid.Triggers>
+    </Grid>
+</ViewCell>
