@@ -45,6 +45,21 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
+        public void LoadViewCellWithTrigger ()
+        {
+            var app =
+                App.Current = new Application ();
+            var color =
+                app.Resources ["DisabledbackgroundColor"] = Color.LightGray;
+            var cell = new SparePartViewCell ();
+            cell.BindingContext = new { IsEnabled = false };
+            var grid = cell.View as Grid;
+            Assert.IsNotNull (grid);
+            Assert.IsFalse (grid.IsEnabled);
+            Assert.AreEqual (color, grid.BackgroundColor);
+        }
+
+        [Test]
         public void NativeViews()
         {
             var page = new ContentPage();
