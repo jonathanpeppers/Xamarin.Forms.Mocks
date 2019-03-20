@@ -26,18 +26,11 @@ Task("Clean")
             CleanDirectory(dir);
     });
 
-Task("Restore-NuGet-Packages")
+Task("Build")
     .IsDependentOn("Clean")
     .Does(() =>
     {
-        NuGetRestore(sln);
-    });
-
-Task("Build")
-    .IsDependentOn("Restore-NuGet-Packages")
-    .Does(() =>
-    {
-        MSBuild(sln, settings => settings.SetConfiguration(configuration));
+        MSBuild(sln, settings => settings.SetConfiguration(configuration).WithRestore());
     });
 
 Task("NUnit")
