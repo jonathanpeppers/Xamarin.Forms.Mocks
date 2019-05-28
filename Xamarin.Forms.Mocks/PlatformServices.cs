@@ -39,7 +39,7 @@ namespace Xamarin.Forms.Mocks
 
         public Assembly[] GetAssemblies()
         {
-            return new Assembly[0];
+            return AppDomain.CurrentDomain.GetAssemblies ();
         }
 
         public string GetMD5Hash(string input)

@@ -1,11 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.Mocks", "Xamarin.Forms.Mocks\Xamarin.Forms.Mocks.csproj", "{AFB557D0-683D-4370-8851-23A617B8079A}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Forms.Mocks", "Xamarin.Forms.Mocks\Xamarin.Forms.Mocks.csproj", "{AFB557D0-683D-4370-8851-23A617B8079A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.Mocks.Xaml", "Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj", "{3D6DA511-5995-48B7-89DD-CD8D08993907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Forms.Mocks.Xaml", "Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj", "{3D6DA511-5995-48B7-89DD-CD8D08993907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.Mocks.Tests", "Xamarin.Forms.Mocks.Tests\Xamarin.Forms.Mocks.Tests.csproj", "{2ECEE799-2725-4E43-8835-119F1D0FF1A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Forms.Mocks.Tests", "Xamarin.Forms.Mocks.Tests\Xamarin.Forms.Mocks.Tests.csproj", "{2ECEE799-2725-4E43-8835-119F1D0FF1A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{633E81F0-48E3-406F-90AE-A1B4ADF46DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAssembly", "TestAssembly\TestAssembly.csproj", "{9643543F-E3B3-4723-925A-E33D7E6108A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +30,19 @@ Global
 		{2ECEE799-2725-4E43-8835-119F1D0FF1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ECEE799-2725-4E43-8835-119F1D0FF1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ECEE799-2725-4E43-8835-119F1D0FF1A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9643543F-E3B3-4723-925A-E33D7E6108A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9643543F-E3B3-4723-925A-E33D7E6108A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9643543F-E3B3-4723-925A-E33D7E6108A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9643543F-E3B3-4723-925A-E33D7E6108A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2ECEE799-2725-4E43-8835-119F1D0FF1A5} = {633E81F0-48E3-406F-90AE-A1B4ADF46DD1}
+		{9643543F-E3B3-4723-925A-E33D7E6108A4} = {633E81F0-48E3-406F-90AE-A1B4ADF46DD1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8047231-E155-493D-9257-FC21BDE46D90}
 	EndGlobalSection
 EndGlobal
