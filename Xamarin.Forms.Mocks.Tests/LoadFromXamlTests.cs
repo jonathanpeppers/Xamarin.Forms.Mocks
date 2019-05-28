@@ -29,6 +29,14 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
+        public void MarkupExtensionInOtherAssembly ()
+        {
+            var label = new Label ();
+            label.LoadFromXaml ("<Label xmlns:f=\"clr-namespace:TestAssembly;assembly=TestAssembly\" Text=\"{f:Foo}\" />");
+            Assert.AreEqual ("Bar", label.Text);
+        }
+
+        [Test]
         public void LoadViaNew()
         {
             var view = new TestView();

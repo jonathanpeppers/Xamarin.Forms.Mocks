@@ -10,6 +10,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TestAssembly\TestAssembly.csproj" />
     <ProjectReference Include="..\Xamarin.Forms.Mocks\Xamarin.Forms.Mocks.csproj" />
     <ProjectReference Include="..\Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj" />
   </ItemGroup>
