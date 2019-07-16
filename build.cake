@@ -1,4 +1,4 @@
-#tool nuget:?package=NUnit.ConsoleRunner&version=3.8.0
+﻿#tool nuget:?package=NUnit.ConsoleRunner&version=3.8.0
 
 // Input args
 string target = Argument("target", "Default");
@@ -16,7 +16,7 @@ var dirs = new[]
     Directory("./Xamarin.Forms.Mocks.Xaml/obj") + Directory(configuration),
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
-string version = "3.5.0.2";
+string version = "4.1.0.5";
 string suffix = "";
 
 MSBuildSettings MSBuildSettings()
