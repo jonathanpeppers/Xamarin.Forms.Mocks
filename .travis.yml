@@ -5,7 +5,7 @@ os:
 
 dist: trusty
 sudo: required
-dotnet: 2.0.0
+dotnet: 2.1.701
 
 script: |
   ./build.sh -t Travis
