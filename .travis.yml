@@ -8,4 +8,4 @@ sudo: required
 dotnet: 2.0.0
 
 script: |
-  ./build.sh -t NUnit
+  ./build.sh -t Travis
