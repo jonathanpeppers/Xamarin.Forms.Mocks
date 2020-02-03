@@ -1,5 +1,5 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.8.0
-#addin nuget:?package=Cake.Boots&version=1.0.0.291
+#addin nuget:?package=Cake.Boots&version=1.0.2.407-pre
 
 // Input args
 string target = Argument("target", "Default");
@@ -54,8 +54,10 @@ MSBuildSettings MSBuildSettings()
 Task("Boots")
     .Does(async () =>
     {
-        var platform = IsRunningOnWindows() ? "windows" : "macos";
-        await Boots ($"https://aka.ms/xamarin-android-commercial-d16-2-{platform}");
+        await Boots (Product.XamarinAndroid, ReleaseChannel.Preview);
+        if (!IsRunningOnWindows ()) {
+            await Boots (Product.XamariniOS, ReleaseChannel.Preview);
+        }
     });
 
 Task("Clean")
