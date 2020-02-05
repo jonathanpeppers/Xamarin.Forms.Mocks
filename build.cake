@@ -54,10 +54,11 @@ MSBuildSettings MSBuildSettings()
 Task("Boots")
     .Does(async () =>
     {
-        await Boots (Product.XamarinAndroid, ReleaseChannel.Preview);
         if (!IsRunningOnWindows ()) {
+            await Boots (Product.Mono,       ReleaseChannel.Stable);
             await Boots (Product.XamariniOS, ReleaseChannel.Preview);
         }
+        await Boots (Product.XamarinAndroid, ReleaseChannel.Preview);
     });
 
 Task("Clean")
