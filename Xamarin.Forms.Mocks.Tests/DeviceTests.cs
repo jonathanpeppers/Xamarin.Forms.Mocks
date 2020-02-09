@@ -196,5 +196,13 @@ namespace Xamarin.Forms.Mocks.Tests
 
             Assert.AreEqual(max, await source.Task);
         }
+
+        [Test]
+        public void DeviceInfo ()
+        {
+            //Device.Info is EditorBrowsable.Never, but is used internally by Master/Detail template
+            MockForms.Init();
+            Device.Info.ToString();
+        }
     }
 }
