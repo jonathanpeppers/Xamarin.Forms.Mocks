@@ -18,6 +18,7 @@ namespace Xamarin.Forms.Mocks
         {
             Device.PlatformServices = new PlatformServices(runtimePlatform);
             Device.Idiom = idiom;
+            Device.Info = new MockDeviceInfo();
             DependencyService.Register<SystemResourcesProvider>();
             DependencyService.Register<Serializer>();
             DependencyService.Register<ValueConverterProvider>();
