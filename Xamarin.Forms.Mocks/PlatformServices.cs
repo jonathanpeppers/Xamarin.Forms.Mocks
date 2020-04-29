@@ -11,9 +11,10 @@ namespace Xamarin.Forms.Mocks
     {
         private readonly IsolatedStorageFile _isolatedStorageFile = new IsolatedStorageFile();
 
-        public PlatformServices(string runtimePlatform)
+        public PlatformServices(string runtimePlatform, OSAppTheme requestedTheme)
         {
             RuntimePlatform = runtimePlatform;
+            RequestedTheme = requestedTheme;
         }
 
         public bool IsInvokeRequired
@@ -26,6 +27,8 @@ namespace Xamarin.Forms.Mocks
             get;
             private set;
         }
+
+        public OSAppTheme RequestedTheme { get; }
 
         public void BeginInvokeOnMainThread(Action action)
         {
@@ -83,6 +86,12 @@ namespace Xamarin.Forms.Mocks
                 if (!callback())
                     return;
             }
+        }
+
+        public Color GetNamedColor(string name)
+        {
+            // Not supported on this platform
+            return Color.Default;
         }
     }
 }

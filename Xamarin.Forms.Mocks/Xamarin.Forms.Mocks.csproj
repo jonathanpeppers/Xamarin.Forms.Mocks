@@ -4,7 +4,7 @@
 		<AssemblyName>Xamarin.Forms.Core.UnitTests</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
+		<PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj" />
