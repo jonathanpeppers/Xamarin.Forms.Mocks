@@ -14,9 +14,9 @@ namespace Xamarin.Forms.Mocks
         /// </summary>
         public static Action<Uri> OpenUriAction { get; set; }
 
-        public static void Init(string runtimePlatform = "Test", TargetIdiom idiom = default(TargetIdiom))
+        public static void Init(string runtimePlatform = "Test", TargetIdiom idiom = default(TargetIdiom), OSAppTheme requestedTheme = OSAppTheme.Unspecified)
         {
-            Device.PlatformServices = new PlatformServices(runtimePlatform);
+            Device.PlatformServices = new PlatformServices(runtimePlatform, requestedTheme);
             Device.Idiom = idiom;
             Device.Info = new MockDeviceInfo();
             DependencyService.Register<SystemResourcesProvider>();
