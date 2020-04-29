@@ -12,26 +12,17 @@ namespace Xamarin.Forms.Mocks.Tests
         public void DefaultAppThemeIsUnspecified()
         {
             MockForms.Init();
-            var str = new OnAppTheme<string>
-            {
-                Default = "Unspecified",
-                Dark = "Dark",
-                Light = "Light"
-            };
-            Assert.AreEqual("Unspecified", str.Value);
+
+            var app = new Application();
+            Assert.AreEqual(OSAppTheme.Unspecified, app.RequestedTheme);
         }
 
         [Test]
         public void RequestedThemeIsSet()
         {
             MockForms.Init(requestedTheme: OSAppTheme.Dark);
-            var str = new OnAppTheme<string>
-            {
-                Default = "Unspecified",
-                Dark = "Dark",
-                Light = "Light"
-            };
-            Assert.AreEqual("Dark", str.Value);
+            var app = new Application();
+            Assert.AreEqual(OSAppTheme.Dark, app.RequestedTheme);
         }
     }
 }
