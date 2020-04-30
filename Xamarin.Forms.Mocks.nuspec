@@ -15,7 +15,7 @@
       <releaseNotes>Upgraded to netstandard2.0</releaseNotes>
       <tags>Xamarin, Xamarin.Forms, Mocks, Unit Testing</tags>
       <dependencies>
-         <dependency id="Xamarin.Forms" version="4.6.0.726" />
+         <dependency id="Xamarin.Forms" version="4.7.0.740-nightly" />
       </dependencies>
    </metadata>
 </package>
