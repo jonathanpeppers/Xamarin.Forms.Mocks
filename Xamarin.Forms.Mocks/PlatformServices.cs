@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms.Internals;
@@ -48,6 +50,20 @@ namespace Xamarin.Forms.Mocks
         public string GetMD5Hash(string input)
         {
             throw new NotImplementedException();
+        }
+
+        public string GetHash(string input)
+        {
+            var stringBuilder = new StringBuilder();
+            using (var hash = SHA256.Create())
+            {
+                var enc = Encoding.UTF8;
+                byte[] result = hash.ComputeHash(enc.GetBytes(input));
+                foreach (byte b in result)
+                    stringBuilder.Append(b.ToString("x2"));
+            }
+
+            return stringBuilder.ToString();
         }
 
         public double GetNamedSize(NamedSize size, Type targetElementType, bool useOldSizes)
