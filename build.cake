@@ -18,7 +18,7 @@ var dirs = new[]
 };
 string sln = "./Xamarin.Forms.Mocks.sln";
 string version = "4.7.0.1";
-string suffix = "";
+string suffix = "-pre";
 
 MSBuildSettings MSBuildSettings()
 {
