@@ -53,6 +53,20 @@ namespace Xamarin.Forms.Mocks.Tests
         }
 
         [Test]
+        public void SkiaSharp()
+        {
+            //fail "Could not load file or assembly 'SkiaSharp.Views.Forms, Version=...."
+            var skiaSharpCanvas = new SkiaSharp.Views.Forms.SKCanvasView();
+           // skiaSharpCanvas.PaintSurface += SkiaSharpCanvas_PaintSurface; 
+            Assert.AreNotEqual(null, skiaSharpCanvas);
+        }
+
+        //private void SkiaSharpCanvas_PaintSurface(object sender, SkiaSharp.Views.Forms.SKPaintSurfaceEventArgs e)
+        //{
+        //    // PaintSurface Call skiasharp process and fail "Could not load file or assembly 'SkiaSharp.Views.Forms, Version=...."
+        //}
+
+        [Test]
         public void LoadViewCellWithTrigger ()
         {
             var app =
