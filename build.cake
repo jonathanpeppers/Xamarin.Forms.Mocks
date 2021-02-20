@@ -1,5 +1,5 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.8.0
-#addin nuget:?package=Cake.Boots&version=1.0.2.421
+#addin nuget:?package=Cake.Boots&version=1.0.4.600-preview1
 
 // Input args
 string target = Argument("target", "Default");
