@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 using NUnit.Framework;
 using Xamarin.Forms;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests
@@ -31,7 +32,6 @@ namespace Xamarin.Forms.Mocks.Tests
             MockForms.Init(Device.iOS);
 
             Assert.AreEqual(Device.iOS, Device.RuntimePlatform);
-            Assert.AreEqual(TargetPlatform.iOS, Device.OS);
         }
 
         [Test]
@@ -40,7 +40,6 @@ namespace Xamarin.Forms.Mocks.Tests
             MockForms.Init(Device.Android);
 
             Assert.AreEqual(Device.Android, Device.RuntimePlatform);
-            Assert.AreEqual(TargetPlatform.Android, Device.OS);
         }
 
         [Test]
@@ -99,7 +98,7 @@ namespace Xamarin.Forms.Mocks.Tests
 
             var expectedUri = new Uri("https://www.google.com");
 
-            Device.OpenUri(expectedUri);
+            Microsoft.Maui.Essentials.Launcher.OpenAsync(expectedUri);
 
             Assert.AreEqual(expectedUri, actual);
             Assert.AreEqual(1, callCount);
@@ -118,7 +117,7 @@ namespace Xamarin.Forms.Mocks.Tests
         {
             MockForms.Init();
             MockForms.OpenUriAction = null;
-            Device.OpenUri(new Uri("https://www.google.com"));
+            Microsoft.Maui.Essentials.Launcher.OpenAsync(new Uri("https://www.google.com"));
         }
         [Test]
         public void IdiomDesktop()

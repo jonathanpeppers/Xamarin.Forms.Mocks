@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml.Internals;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using Xamarin.Forms.Xaml.Internals;
 
 namespace Xamarin.Forms.Mocks.Xaml
 {
@@ -37,7 +39,7 @@ namespace Xamarin.Forms.Mocks.Xaml
         static string GetTypeConverterTypeName (this IEnumerable<CustomAttributeData> attributes)
         {
             var converterAttribute =
-                attributes.FirstOrDefault (cad => TypeConverterAttribute.TypeConvertersType.Contains (cad.AttributeType.FullName));
+                attributes.FirstOrDefault (cad => System.ComponentModel.TypeConverterAttribute.Default.ConverterTypeName.Contains (cad.AttributeType.FullName));
             if (converterAttribute == null)
                 return null;
             if (converterAttribute.ConstructorArguments [0].ArgumentType == typeof (string))

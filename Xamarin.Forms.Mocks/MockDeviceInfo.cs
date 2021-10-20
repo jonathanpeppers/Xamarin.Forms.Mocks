@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Internals;
+﻿using Microsoft.Maui.Controls.Internals;
+using Microsoft.Maui.Graphics;
 
 namespace Xamarin.Forms.Mocks
 {

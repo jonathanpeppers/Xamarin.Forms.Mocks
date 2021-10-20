@@ -1,5 +1,6 @@
-﻿using NUnit.Framework;
-using Xamarin.Forms.Xaml;
+﻿using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
+using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests
 {
@@ -40,7 +41,7 @@ namespace Xamarin.Forms.Mocks.Tests
         {
             Application.Current = new App();
 
-            Assert.AreEqual(Application.Current.Resources["White"], Color.White);
+            Assert.AreEqual(Application.Current.Resources["White"], Colors.White);
         }
     }
 }

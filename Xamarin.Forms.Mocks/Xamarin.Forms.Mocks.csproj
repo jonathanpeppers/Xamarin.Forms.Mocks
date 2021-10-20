@@ -1,11 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>net6.0;</TargetFrameworks>
+		<UseMaui>true</UseMaui>
 		<AssemblyName>Xamarin.Forms.Core.UnitTests</AssemblyName>
 	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
-	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj" />
 	</ItemGroup>

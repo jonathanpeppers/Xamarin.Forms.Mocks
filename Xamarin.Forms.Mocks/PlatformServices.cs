@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Microsoft.Maui.Animations;
+using Microsoft.Maui.Controls;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xamarin.Forms.Internals;
+using Microsoft.Maui.Controls.Internals;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace Xamarin.Forms.Mocks
 {
@@ -107,7 +111,7 @@ namespace Xamarin.Forms.Mocks
         public Color GetNamedColor(string name)
         {
             // Not supported on this platform
-            return Color.Default;
+            return Colors.Black;
         }
     }
 }
