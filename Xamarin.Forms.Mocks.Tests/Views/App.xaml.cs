@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Controls;
+using System;
 
 namespace Xamarin.Forms.Mocks.Tests
 {

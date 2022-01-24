@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests

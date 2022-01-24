@@ -1,5 +1,5 @@
-﻿using System;
-using Xamarin.Forms.Xaml;
+﻿using Microsoft.Maui.Controls.Xaml;
+using System;
 
 namespace TestAssembly
 {

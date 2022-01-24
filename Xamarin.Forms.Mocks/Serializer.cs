@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.Forms.Internals;
+using Microsoft.Maui.Controls.Internals;
 
 namespace Xamarin.Forms.Mocks
 {

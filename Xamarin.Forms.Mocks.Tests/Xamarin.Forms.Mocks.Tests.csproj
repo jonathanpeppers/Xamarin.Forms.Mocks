@@ -1,20 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-    <AssemblyName>Xamarin.Forms.Mocks.Tests</AssemblyName>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TestAssembly\TestAssembly.csproj" />
-    <ProjectReference Include="..\Xamarin.Forms.Mocks\Xamarin.Forms.Mocks.csproj" />
-    <ProjectReference Include="..\Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;</TargetFrameworks>
+		<UseMaui>true</UseMaui>
+		<AssemblyName>Xamarin.Forms.Mocks.Tests</AssemblyName>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="NUnit" Version="3.13.2" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+		<PackageReference Include="coverlet.collector" Version="3.1.0" PrivateAssets="all" />
+		<PackageReference Include="xunit" Version="2.4.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\TestAssembly\TestAssembly.csproj" />
+		<ProjectReference Include="..\Xamarin.Forms.Mocks\Xamarin.Forms.Mocks.csproj" />
+		<ProjectReference Include="..\Xamarin.Forms.Mocks.Xaml\Xamarin.Forms.Mocks.Xaml.csproj" />
+	</ItemGroup>
 </Project>

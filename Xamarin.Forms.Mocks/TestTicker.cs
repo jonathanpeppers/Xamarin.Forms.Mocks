@@ -1,4 +1,4 @@
-﻿using Xamarin.Forms.Internals;
+﻿using Microsoft.Maui.Animations;
 
 namespace Xamarin.Forms.Mocks
 {
@@ -6,17 +6,17 @@ namespace Xamarin.Forms.Mocks
     {
         private bool _enabled;
 
-        protected override void EnableTimer()
+        public override void Start()
         {
             _enabled = true;
 
             while (_enabled)
             {
-                SendSignals(16);
+                Fire();
             }
         }
 
-        protected override void DisableTimer()
+        public override void Stop()
         {
             _enabled = false;
         }

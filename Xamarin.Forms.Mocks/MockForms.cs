@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Controls;
+using System;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms.Mocks.Xaml;
 
@@ -9,7 +10,7 @@ namespace Xamarin.Forms.Mocks
     public static class MockForms
     {
         /// <summary>
-        /// Callback for asserting against Device.OpenUri
+        /// Callback for asserting against Microsoft.Maui.Essentials.Launcher.OpenAsync
         /// NOTE: MockForms.Init() clears this value
         /// </summary>
         public static Action<Uri> OpenUriAction { get; set; }
@@ -17,11 +18,9 @@ namespace Xamarin.Forms.Mocks
         public static void Init(string runtimePlatform = "Test", TargetIdiom idiom = default(TargetIdiom), OSAppTheme requestedTheme = OSAppTheme.Unspecified)
         {
             Device.PlatformServices = new PlatformServices(runtimePlatform, requestedTheme);
-            Device.Idiom = idiom;
             Device.Info = new MockDeviceInfo();
             DependencyService.Register<SystemResourcesProvider>();
             DependencyService.Register<Serializer>();
-            DependencyService.Register<ValueConverterProvider>();
             OpenUriAction = null;
         }
     }

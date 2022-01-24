@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
-using Xamarin.Forms.Xaml;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
+using NUnit.Framework;
 
 namespace Xamarin.Forms.Mocks.Tests
 {
@@ -58,7 +61,7 @@ namespace Xamarin.Forms.Mocks.Tests
             var app =
                 App.Current = new Application ();
             var color =
-                app.Resources ["DisabledbackgroundColor"] = Color.LightGray;
+                app.Resources ["DisabledbackgroundColor"] = Colors.LightGray;
             var cell = new SparePartViewCell ();
             cell.BindingContext = new { IsEnabled = false };
             var grid = cell.View as Grid;
